@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Quattrocento+Sans" rel="stylesheet">
+        <link rel="stylesheet" href="styling.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="text-center">
+                <header>
+                    <h1>Typing Test</h1>
+                </header>
+                <div class="row">
+                    <div class="col-3 measurement">
+
+                        <div class="meas_container">
+                            <div class="typingIcon">
+                                <img src="images/speed.png" alt="" width="50">
+                            </div>
+                            <div id="wpm" class="value">0</div>
+                            <div class="title">
+                                <span>WPM</span>
+                            </div>
+                        </div>
+                        <div id="change">
+                            <span id="wpmChange"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="col-3 measurement">
+                        <div class="meas_container">
+                            <div class="typingIcon">
+                                <img src="images/click.png" alt="" width="40">
+                            </div>
+                            <div id="wpm" class="value">0</div>
+                            <div class="title">
+                                <span>CPM</span>
+                            </div>
+                        </div>
+                        <div id="change">
+                            <span id="cpmChange"></span>
+                        </div>
+                    </div>
+
+                    <div class="col-3 measurement">
+                        <div class="meas_container">
+                            <div class="typingIcon">
+                                <img src="images/accuracy.png" alt="" width="50">
+                            </div>
+                            <div id="accuracy" class="value">0%</div>
+                            <div class="title">
+                                <span>Accuracy</span>
+                            </div>
+                        </div>
+                        <div id="change">
+                            <span id="accuracyChange"></span>
+                        </div>
+                        </div>
+
+                    <div class="col-3 measurement">
+                        <div class="meas_container">
+                            <div class="typingIcon">
+                                <img src="images/time.png" alt="" width="50">
+                            </div>
+                            <div id="timeLeft" class="value">60</div>
+                            <div class="title">
+                                <span>Time Left</span>
+                            </div>
+                        </div>
+                        </div>
+
+                </div>
+                <!-- test words-->
+                <div id="content" class="text-center">
+
+                </div>
+                <div>
+                    <input type="text" placeholder="Type Here" class="text-center" id="input">
+                </div>
+
+                <!-- restart words-->
+                <div class="restart">
+                    <button onclick="location.reload()" type="button" class="btn btn-primary btn-lg">Restart</button>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal" id="myModal" tabindex="-1">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title">You finished your test!</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                          <div class="form-group">
+                              <label for="name" class="sr-only">Enter your name:</label>
+                              <input type="text" class="form-control" placeholder="Your full name" id="name">
+                          </div>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-info">Download your certificate</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+            </div>
+        </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="dataModule.js"></script>
+        <script type="text/javascript" src="UIModule.js"></script>
+        <script type="text/javascript" src="certificateModule.js"></script>
+        <script type="text/javascript" src="wordsModule.js"></script>
+        <script type="text/javascript" src="eventsModule.js"></script>
+        <script type="text/javascript" src="code.js"></script>
+    </body>
+</html>

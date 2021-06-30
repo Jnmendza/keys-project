@@ -1,0 +1,81 @@
+/*body element*/
+body{
+    font-family: 'Quattrocento Sans', sans-serif;
+    background:url(../images/bg-photo.jpg) no-repeat center center;
+    background-attachment: fixed;
+    background-size: cover;
+    color: #D5D5D5;
+}
+.meas_container{
+    background-color: rgba(49,49,49,0.6);
+    padding: 25px;
+}
+
+.row{
+    font-size: 30px;
+}
+.title{
+    font-size: 14px;
+}
+
+.typingIcon {
+    height: 65px;
+}
+
+#content {
+    height: 120px;
+    background-color: rgba(255,255,255,0.6);
+    margin: 10px auto;
+    font-size: 30px;
+    overflow: hidden;
+    padding: 0 5px;
+    line-height: 40px;
+}
+
+.change{
+    height: 25px;
+    font-size: 16px;
+}
+
+#input {
+    background-color: rgba(255,255,255,0.3);
+    width: 100%;
+    color: #84F552;
+    font-size: 30px;
+    padding: 10px;
+}
+
+.restart{
+    margin-top: 20px;
+    opacity: 0.8;
+}
+
+.btn-primary{
+    /* background-color: rgba(255,255,255,0.9); */
+    /* border-color: black; */
+}
+
+.btn-primary:focus,.btn-primary:active,.btn-primary:hover{
+    /* background-color: rgba(255,255,255,0.8); */
+    background-color:black;
+    border-color: white;
+}
+
+.scoreDown, .scoreUp{
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 12px;
+}
+
+.scoreDown{
+    background: red;
+}
+
+.scoreUp{
+    background: #84F552;
+    color: black;
+}
+
+.modal{
+    color: black;
+}
