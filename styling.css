@@ -79,3 +79,8 @@ body{
 .modal{
     color: black;
 }
+
+.activeWord {
+    background: #84F552;
+    border-radius: 5px;
+}

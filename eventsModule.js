@@ -19,13 +19,23 @@ var eventsModule = (function(dModule, uModule, cModule, wModule){
             let lineReturn = dModule.getLineReturn();
             let testWords = dModule.getListofTestWords();
             uModule.fillContent(testWords,lineReturn);
-            // set the total test time
+            // set the total test time: data Module
+            dModule.setTestTime(duration);
             // update the time left: data Module
+            dModule.initializeTimeLeft()
             // update the time left: UI module
+            let timeLeft = dModule.getTimeLeft();
+            uModule.updateTimeLeft(timeLeft);
             // move to a new word: data Module
+            dModule.moveToNewWord();
             // set active word: UI Module
+            let index = dModule.getCurrentWordIndex()
+            uModule.setActiveWord(index)
             // format the active word: UI module
+            let currentWord = dModule.getCurrentWord();
+            uModule.formatWord(currentWord);
             // focus on text input: UI module
+            uModule.inputFocus();
             // add event listeners
             addEventListeners();
         }

@@ -3,22 +3,22 @@ let UIModule = (function(){
     // classes used to select HTML elements
     let DOMElements = {
         //indicators - test control
-        timeLeft: '', //HTML element displaying time left
+        timeLeft: document.getElementById('timeLeft'), //HTML element displaying time left
         //test results
-        wpm: '',
-        wpmChange: '',
-        cpm: '',
-        cpmChange: '',
-        accuracy: '',
-        accuracyChange: '',
+        wpm: document.getElementById('wpm'),
+        wpmChange: document.getElementById('wpmChange'),
+        cpm: document.getElementById('cpm'),
+        cpmChange: document.getElementById('cpmChange'),
+        accuracy: document.getElementById('accuracy'),
+        accuracyChange: document.getElementById('accuracyChange'),
         //user input
-        textInput: '',
-        nameInput: '',
+        textInput: document.querySelector('#input'),
+        nameInput: document.querySelector('.form-group'),
         //test words
         content: document.getElementById('content'),
         activeWord: '',
         //modal
-        modal: ''
+        modal: $('#myModal')
     };
 
     const splitArray = (str) => {
@@ -46,11 +46,17 @@ let UIModule = (function(){
         
     //get DOM elements
         
-        getDOMElements(){},
+        getDOMElements(){
+            return {
+                textInput: DOMElements.textInput,
+            }
+        },
         
     //Indicators - Test Control
     
-        updateTimeLeft: function(){},
+        updateTimeLeft: function(x){
+            DOMElements.timeLeft.innerHTML = x;
+        },
         
     //results
         
@@ -62,7 +68,9 @@ let UIModule = (function(){
         
     //user input
     
-        inputFocus: function(){}, 
+        inputFocus: function(){
+            DOMElements.textInput.focus();
+        }, 
         
         isNameEmpty: function(){},
         
@@ -74,7 +82,9 @@ let UIModule = (function(){
         
         emptyInput: function(){},  
     
-        getTypedWord: function(){},
+        getTypedWord: function(){
+            return DOMElements.textInput.value;
+        },
         
     //test words
         // turn every letter into a span and place those span elements in another span element
@@ -97,9 +107,16 @@ let UIModule = (function(){
             DOMElements.content.innerHTML = content;
         },
         
-        formatWord: function(wordObject, wordHTML){}, 
+        formatWord: function(wordObject){
+            let activeWord = DOMElements.activeWord;
+            // highlight the current word
+            activeWord.className = 'activeWord';
+            // format individual character
+        }, 
         
-        setActiveWord: function(index){}, 
+        setActiveWord: function(index){
+            DOMElements.activeWord = DOMElements.content.children[index]
+        }, 
         
         deactivateCurrentWord: function(){}, 
         
