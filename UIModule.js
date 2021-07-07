@@ -1,19 +1,46 @@
-var UIModule = (function(){
+let UIModule = (function(){
     
-    //classes used to select HTML elements
-    var DOMElements = {
+    // classes used to select HTML elements
+    let DOMElements = {
         //indicators - test control
-        timeLeft, //HTML element displaying time left
+        timeLeft: '', //HTML element displaying time left
         //test results
-        wpm,wpmChange,cpm,cpmChange,accuracy,accuracyChange,
+        wpm: '',
+        wpmChange: '',
+        cpm: '',
+        cpmChange: '',
+        accuracy: '',
+        accuracyChange: '',
         //user input
-        textInput,nameInput,
+        textInput: '',
+        nameInput: '',
         //test words
-        content,activeWord,
+        content: document.getElementById('content'),
+        activeWord: '',
         //modal
-        modal
+        modal: ''
     };
 
+    const splitArray = (str) => {
+        str = str + ' ';
+        return str.split('');
+    }
+
+    const addSpanTag = (arrOfLetters) => {
+        return arrOfLetters.map(function(letter){
+            return '<span>' + letter + '</span>'
+        })
+    }
+
+    const spanWrapper = (arrOfLetters) => {
+        arrOfLetters.unshift("<span>")
+        arrOfLetters.push("</span>");
+        return arrOfLetters
+    }
+
+    const joinEachWord = (arrOfLetters) => {
+        return arrOfLetters.join('');
+    }
     
     return {
         
@@ -50,8 +77,25 @@ var UIModule = (function(){
         getTypedWord: function(){},
         
     //test words
-    
-        fillContent: function(){}, 
+        // turn every letter into a span and place those span elements in another span element
+        fillContent: function(array, lineReturn){
+            // console.log("Split the array",content)
+            let content = array.map(splitArray);
+            // console.log("Add a span",content)
+            content = content.map(addSpanTag)
+            // console.log("wrap in single span",content)
+            content = content.map(spanWrapper);
+            // console.log("join each word",content)
+            content = content.map(joinEachWord);
+            // console.log("join each array",content)
+            content = content.join('');
+            // replace the line return special code with the HTML entity (line return)
+            // <span>|</span>
+            // <span>&crarr;;</span>
+            content = content.split(lineReturn).join('&crarr;');
+            //fill content
+            DOMElements.content.innerHTML = content;
+        },
         
         formatWord: function(wordObject, wordHTML){}, 
         
@@ -63,3 +107,4 @@ var UIModule = (function(){
         
     }
 })();
+

@@ -1,4 +1,56 @@
 var dataModule = (function(){
+    var lineReturn = '|';
+    // shuffle function
+    const shuffle = (array) => {
+        let currentIndex = array.length , randomIndex;
+        // console.log("current index", currentIndex)
+        // while the array is NOT empty
+        while(currentIndex !== 0){
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            // console.log("random index", randomIndex)
+            currentIndex--;
+    
+        // swap it with the current element
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]
+        ]
+        }
+        return array;   
+    }
+
+    // capitalizedRandom function
+    // array['word1','word2','word3']
+    // array['Word1','word2','Word3']
+    String.prototype.capitalize = function(){
+        return this.charAt(0).toUpperCase() + this.slice(1);
+      }
+
+    const capitalizeRandom = (array) => {
+        return array.map(function(currentWord){
+            const x = Math.floor(4 * Math.random()) // chance x = 3 25%
+            return (x==3) ? currentWord.capitalize() : currentWord;
+        })
+    }
+
+//    console.log(capitalizeRandom(['word1','word2','word3','word4']))
+
+    // addRandomPunctuation function
+    // array['word1','word2','word3']
+    // array['word1.','word2!','word3,']
+    String.prototype.randomPunc = function(){
+        const punctuation = [lineReturn,'!','.',',','?',';','','',''];
+        const randomNum = Math.floor(Math.random() * punctuation.length);
+        return this + punctuation[randomNum];
+    }
+
+    const addRandomPunctuation = (array) => {
+        return array.map(function(currentWord){
+            return currentWord.randomPunc();
+        })
+    }
+   console.log(addRandomPunctuation(['word1','word2','word3','word4']))
+
+
 
     var appData = {
         indicators: {
@@ -56,14 +108,38 @@ var dataModule = (function(){
 
     //test words
         
-        fillListOfTestWords(textNumber){},// fills words.testWords
+        fillListOfTestWords(textNumber, words){
+            let result = words.split(" ");
+            if(textNumber==0){
+                // shuffle words
+                result = shuffle(result);
+                // capitalize random strings
+                result = capitalizeRandom(result);
+                // add random punctuation
+                result = randomPunc(result);
 
-        getListofTestWords(){},// get list of test words: words.testWords
+            }
+
+            appData.words.testWords = result;
+        },// fills words.testWords
+
+        getListofTestWords: function(){
+            return appData.words.testWords;
+        },// get list of test words: words.testWords
 
         moveToNewWord: function(){},// increments the currentWordIndex - updates the current word (appData.words.currentWord) by creating a new instance of the word class - updates numOfCorrectWords, numOfCorrectCharacters and numOfTestCharacters
 
-        updateCurrentWord: function(value){},// updates current word using user input
+        updateCurrentWord: function(value){
+
+        },// updates current word using user input
+
+        getLineReturn(){
+            return lineReturn;
+        },
         
+        returnData(){
+            console.log(appData);
+        }
     }
     
 })();
